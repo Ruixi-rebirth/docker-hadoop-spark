@@ -1,0 +1,85 @@
+version: "1.0"
+networks:
+  mynet:
+    ipam:
+      config:
+      - subnet: 172.18.1.0/24
+services:
+  hadoop-master:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    # image: ruixi/hadoop-master
+    hostname: master
+    ports:
+      # - "9000:9000"
+      # - "50090:50090"
+      # - "10020:10020"
+      # - "19888:19888"
+      - "50070:50070"
+      - "8088:8088"
+    container_name: hadoop-master
+    restart: always
+    stdin_open: true
+    tty: true
+    working_dir: /home/hadoop
+    user: hadoop 
+    networks:
+      mynet:
+        ipv4_address: 172.18.1.2
+    extra_hosts:
+      - "master:172.18.1.2"
+      - "slave1:172.18.1.3"
+      - "slave2:172.18.1.4"
+  hadoop-slave1:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    # image: ruixi/hadoop-master
+    hostname: slave1
+    # ports:
+      # - "9000:9000"
+      # - "50090:50090"
+      # - "10020:10020"
+      # - "19888:19888"
+      # - "50070:50070"
+      # - "8088:8088"
+    container_name: hadoop-slave1
+    restart: always
+    stdin_open: true
+    tty: true
+    working_dir: /home/hadoop
+    user: hadoop 
+    networks:
+      mynet:
+        ipv4_address: 172.18.1.3
+    extra_hosts:
+      - "master:172.18.1.2"
+      - "slave1:172.18.1.3"
+      - "slave2:172.18.1.4"
+  hadoop-slave2:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    # image: ruixi/hadoop-master
+    hostname: slave2
+    # ports:
+      # - "9000:9000"
+      # - "50090:50090"
+      # - "10020:10020"
+      # - "19888:19888"
+      # - "50070:50070"
+      # - "8088:8088"
+    container_name: hadoop-slave2
+    restart: always
+    stdin_open: true
+    tty: true
+    working_dir: /home/hadoop
+    user: hadoop 
+    networks:
+      mynet:
+        ipv4_address: 172.18.1.4
+    extra_hosts:
+      - "master:172.18.1.2"
+      - "slave1:172.18.1.3"
+      - "slave2:172.18.1.4"
