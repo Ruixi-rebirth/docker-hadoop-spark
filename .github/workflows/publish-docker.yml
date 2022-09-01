@@ -14,7 +14,7 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v4
       with:
-        name: Ruixi-rebirth/docker-hadoop/image
+        name: Ruixi-rebirth/docker-hadoop/hadoop
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: ghcr.io
