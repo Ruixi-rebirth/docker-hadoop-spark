@@ -1,6 +1,6 @@
 *我个人的学习环境，随着学习深入，将不断改进......*
 
-[![Actions Status](https://github.com/Ruixi-rebirth/docker-hadoop/actions/workflows/push.yml/badge.svg)](https://github.com/Ruixi-rebirth/docker-hadoop/actions)
+[![Actions Status](https://github.com/Ruixi-rebirth/docker-hadoop/actions/workflows/workflow.yml/badge.svg)](https://github.com/Ruixi-rebirth/docker-hadoop/actions)
 
 #### 一些东西
 

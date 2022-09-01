@@ -14,10 +14,12 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v4
       with:
-        name: Ruixi-rebirth/docker-hadoop/hadoop
+        name: Ruixi-rebirth/hadoop
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: ghcr.io
+    - name: test run container
+      run: docker-compose up -f docker-compose-test -d
    
 
 
