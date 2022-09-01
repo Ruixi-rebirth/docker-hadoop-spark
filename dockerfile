@@ -13,11 +13,17 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && tar -zxf jdk-11.0.16_linux-x64_bin.tar.gz -C jdk --strip-components=1 \
     && rm jdk-11.0.16_linux-x64_bin.tar.gz \
     && sed -i "s/#PermitRootLogin yes/PermitRootLogin yes/g" /etc/ssh/sshd_config \
-    && service ssh start \
+    && sed -i -e '$ahadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL' /etc/sudoers \
+    && sed -i -e '$asudo service ssh start' .bashrc \
     && chown -R hadoop:hadoop .ssh \
-    && chown -R hadoop:hadoop *
+    && chown -R hadoop:hadoop * 
+USER hadoop
 ENV JAVA_HOME /home/hadoop/jdk
 ENV CLASSPATH $JAVA_HOME/lib 
 ENV HADOOP_HOME /home/hadoop/hadoop 
 ENV PATH $JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
+#RUN hdfs namenode -format \ 
+#    && start-dfs.sh \
+#    && start-yarn.sh \
+#    && mapred --daemon start historyserver
 
