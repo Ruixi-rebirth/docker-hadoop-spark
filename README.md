@@ -2,9 +2,9 @@
 
 #### 一些东西
 
-- hadoop V3.3.4
-- spark V3.3.0
-- JDK V11.0.16
+- Hadoop v3.3.4
+- Spark v3.3.0
+- JDK v11.0.16
 
 #### Shot
 ![](./img/show.png)
