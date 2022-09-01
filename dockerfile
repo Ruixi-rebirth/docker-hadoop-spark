@@ -6,6 +6,7 @@ WORKDIR /home/hadoop
 COPY jdk-11.0.16_linux-x64_bin.tar.gz ./
 COPY .ssh ./.ssh
 ADD hadoop-3.3.4 ./hadoop 
+ADD spark-3.3.0-bin-hadoop3 ./spark
 RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo' \
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null\
@@ -20,8 +21,9 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
 USER hadoop
 ENV JAVA_HOME /home/hadoop/jdk
 ENV CLASSPATH $JAVA_HOME/lib 
+ENV SPARK_HOME=/home/hadoop/spark
 ENV HADOOP_HOME /home/hadoop/hadoop 
-ENV PATH $JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
+ENV PATH $JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:.:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
 #RUN hdfs namenode -format \ 
 #    && start-dfs.sh \
 #    && start-yarn.sh \
