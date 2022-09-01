@@ -1,6 +1,6 @@
 *我个人的学习环境，随着学习深入，将不断改进......*
 
-[![Actions Status](https://github.com/peter-evans/docker-compose-actions-workflow/workflows/docker-compose-actions-workflow/badge.svg)](https://github.com/Ruixi-rebirth/docker-hadoop/actions)
+[![Actions Status](https://github.com/Ruixi-rebirth/docker-hadoop/workflows/docker-compose-actions-workflow/badge.svg)](https://github.com/Ruixi-rebirth/docker-hadoop/actions)
 
 #### 一些东西
 
