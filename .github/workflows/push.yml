@@ -1,0 +1,15 @@
+name: docker-compose-actions-workflow
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - user: actions/checkout@v3 
+      - name: test1 
+        run: docker-compose up 
+      - name: attach hadoop-master
+        run: docker attach hadoop-master
+      - name: attach hadoop-slave1
+        run: docker attach hadoop-slave1
+      - name: attach hadoop-slave2
+        run: docker attach hadoop-slave2
