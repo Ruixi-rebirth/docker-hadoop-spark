@@ -11,6 +11,10 @@ jobs:
       run: wget http://23.105.207.7:8888/hadoop-3.3.4.tar.gz
     - name: extract hadoop
       run: tar -zxf hadoop-3.3.4.tar.gz
+    - name: download spark
+      run: wget http://23.105.207.7:8888/spark-3.3.0-bin-hadoop3.tar.gz
+    - name: extract spark
+      run: tar -zxf spark-3.3.0-bin-hadoop3.tar.gz
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v4
       with:
