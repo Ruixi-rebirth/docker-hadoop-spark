@@ -4,9 +4,9 @@
 
 #### 一些东西
 
-- Hadoop v3.3.4
-- Spark v3.3.0
-- JDK v11.0.16
+- Hadoop-3.3.4
+- Spark-3.3.0-bin-hadoop3
+- JDK-11.0.16
 - .ssh 文件夹里面的公钥和私钥可以自己本地生成，每个节点会得到一样的公钥和私钥，方便ssh免密登陆
 #### Shot
 ![](./img/show.png)
