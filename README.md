@@ -1,4 +1,4 @@
-<p align="center">Hadoop+Spark 集群环境(一主两从)</p>
+<h3 align="center">Hadoop+Spark 集群环境(一主两从)</h3>
 
 *我个人的学习环境，随着学习深入，将不断改进......*
 
