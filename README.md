@@ -18,7 +18,7 @@ git clone https://github.com/Ruixi-rebirth/docker-hadoop.git
 
 2. 下载必要的组件到context中
 
-    点击此 [链接](http://23.105.207.7:8888/) 进行下载，下载到该项目根目录中
+    点击此 [链接](http://23.105.207.7:8888/) 进行下载，下载到该项目根目录下
 
 3. 后台启动容器 
 ```bash
