@@ -1,4 +1,4 @@
-name: push image & test run
+name: push image & test run 🔨
 on: [push]
 jobs:
   build:
