@@ -19,7 +19,6 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: ghcr.io
         snapshot: true
-    - name: test run  
-      run: docker-compose up -d
+   
 
 
