@@ -11,8 +11,8 @@ jobs:
         run: wget http://23.105.207.7:8888/hadoop-3.3.4.tar.gz
       - name: extract hadoop
         run: tar -zxf hadoop-3.3.4.tar.gz
-      - name: test1 
-        run: docker-compose up 
+      - name: build & run  
+        run: docker-compose up -d
       - name: attach hadoop-master
         run: docker attach hadoop-master
       - name: attach hadoop-slave1
