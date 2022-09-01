@@ -4,7 +4,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - user: actions/checkout@v3 
+      - uses: actions/checkout@v3 
       - name: test1 
         run: docker-compose up 
       - name: attach hadoop-master
