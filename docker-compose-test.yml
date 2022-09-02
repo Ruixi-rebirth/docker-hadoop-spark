@@ -4,7 +4,7 @@ networks:
     ipam:
       config:
       - subnet: 172.18.1.0/24
-valumes:
+volumes:
   hadoop-config:
   spark-config:
 services:
@@ -23,7 +23,7 @@ services:
       - "8080:8080"
       - "8088:8088"
     container_name: hadoop-master
-    valumes:
+    volumes:
       - hadoop-config:/home/hadoop/hadoop/etc:rw
       - spark-config:/home/hadoop/spark/conf:rw
     restart: always
