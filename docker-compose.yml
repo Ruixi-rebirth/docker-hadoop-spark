@@ -9,7 +9,6 @@ services:
     build:
       context: ./
       dockerfile: dockerfile
-    # image: ruixi/hadoop-master
     hostname: master
     ports:
       # - "9000:9000"
@@ -39,15 +38,7 @@ services:
     build:
       context: ./
       dockerfile: dockerfile
-    # image: ruixi/hadoop-master
     hostname: slave1
-    # ports:
-      # - "9000:9000"
-      # - "50090:50090"
-      # - "10020:10020"
-      # - "19888:19888"
-      # - "50070:50070"
-      # - "8088:8088"
     container_name: hadoop-slave1
     depends_on:
       - hadoop-master
@@ -67,15 +58,7 @@ services:
     build:
       context: ./
       dockerfile: dockerfile
-    # image: ruixi/hadoop-master
     hostname: slave2
-    # ports:
-      # - "9000:9000"
-      # - "50090:50090"
-      # - "10020:10020"
-      # - "19888:19888"
-      # - "50070:50070"
-      # - "8088:8088"
     container_name: hadoop-slave2
     depends_on:
       - hadoop-master

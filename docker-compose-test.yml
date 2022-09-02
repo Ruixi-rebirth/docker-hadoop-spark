@@ -6,10 +6,7 @@ networks:
       - subnet: 172.18.1.0/24
 services:
   hadoop-master:
-    # build:
-    #   context: ./
-    #   dockerfile: dockerfile
-    image: ruixi/hadoop-spark
+    image:  ghcr.io/ruixi/hadoop-spark
     hostname: master
     ports:
       # - "9000:9000"
@@ -36,19 +33,8 @@ services:
       - "slave1:172.18.1.3"
       - "slave2:172.18.1.4"
   hadoop-slave1:
-    # build:
-    #   context: ./
-    #   dockerfile: dockerfile
-    # image: ruixi/hadoop-master
-    image: ruixi/hadoop-spark
+    image:  ghcr.io/ruixi/hadoop-spark
     hostname: slave1
-    # ports:
-      # - "9000:9000"
-      # - "50090:50090"
-      # - "10020:10020"
-      # - "19888:19888"
-      # - "50070:50070"
-      # - "8088:8088"
     container_name: hadoop-slave1
     depends_on:
       - hadoop-master
@@ -65,19 +51,8 @@ services:
       - "slave1:172.18.1.3"
       - "slave2:172.18.1.4"
   hadoop-slave2:
-    # build:
-    #   context: ./
-    #   dockerfile: dockerfile
-    # image: ruixi/hadoop-master
-    image: ruixi/hadoop-spark
+    image:  ghcr.io/ruixi/hadoop-spark
     hostname: slave2
-    # ports:
-      # - "9000:9000"
-      # - "50090:50090"
-      # - "10020:10020"
-      # - "19888:19888"
-      # - "50070:50070"
-      # - "8088:8088"
     container_name: hadoop-slave2
     depends_on:
       - hadoop-master
