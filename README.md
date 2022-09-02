@@ -11,15 +11,10 @@
 |hadoop-slave1|172.18.1.3|Slave节点|11.0.16|3.3.4|3.3.0|Ubuntu:latest|
 |hadoop-slave2|172.18.1.4|Slave节点|11.0.16|3.3.4|3.3.0|Ubuntu:latest|
 
-hadoop部署方式：完全分布式模式(集群模式)
+- hadoop部署说明: 完全分布式模式(集群模式),Master 节点仅作为 NameNode 使用, slave 节点 为 DataNode
 
-spark部署方式： Spark On Yarn
+- spark部署说明: Spark On YARN*(Yet Another Resource Negotiator, 另一种资源协调者)*, 即 Spark 运行在Hadoop YARN框架之上的一种模式
 
-Master 节点仅作为 NameNode 使用，slave 节点 为 DataNode
-
-- Hadoop-3.3.4
-- Spark-3.3.0-bin-hadoop3
-- JDK-11.0.16
 - .ssh 文件夹里面的公钥和私钥可以自己本地生成，每个节点会得到一样的公钥和私钥，方便ssh免密登陆
 ### 截屏
 ![](./img/show.png)
