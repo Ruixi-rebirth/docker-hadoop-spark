@@ -1,4 +1,5 @@
 FROM continuumio/anaconda3 
+MAINTAINER Ruixi-rebirth <ruixirebirth@gmail.com>
 RUN useradd -d /home/hadoop/ -m hadoop \
     && echo root:ruixi | chpasswd \
     && echo hadoop:ruixi | chpasswd
