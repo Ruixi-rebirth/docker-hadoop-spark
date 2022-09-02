@@ -5,6 +5,9 @@ RUN useradd -d /home/hadoop/ -m hadoop \
     && echo hadoop:ruixi | chpasswd
 WORKDIR /home/hadoop 
 COPY .ssh ./.ssh
+COPY sshd.sh ./ 
+COPY jupyterlab.sh ./ 
+COPY start-process.sh ./
 RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo' \
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null \
@@ -19,8 +22,6 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && rm jdk-11.0.16_linux-x64_bin.tar.gz spark.tar.gz hadoop.tar.gz \
     && sed -i "s/#PermitRootLogin yes/PermitRootLogin yes/g" /etc/ssh/sshd_config \
     && sed -i -e '$ahadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL' /etc/sudoers \
-    && sed -i -e '$asudo service ssh start' .bashrc \
-    && sed -i -e '$ajupyter notebook --notebook-dir=/home/hadoop/notebooks --ip='*' --port=27649 --no-browser --allow-root' .bashrc \
     && chown -R hadoop:hadoop .ssh \
     && chmod 600 ./.ssh/id_rsa \
     && mv spark/sbin/start-all.sh spark/sbin/start-all-spark.sh \

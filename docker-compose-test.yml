@@ -25,11 +25,11 @@ services:
       - hadoop-config:/home/hadoop/hadoop/etc/hadoop:rw
       - spark-config:/home/hadoop/spark/conf:rw
     restart: always
-    stdin_open: true
+    # stdin_open: true
     tty: true
     working_dir: /home/hadoop
     user: hadoop 
-    # entrypoint: ./start-process.sh
+    entrypoint: ./start-process.sh
     networks:
       mynet:
         ipv4_address: 172.18.1.2
@@ -46,7 +46,7 @@ services:
     depends_on:
       - hadoop-master
     restart: always
-    stdin_open: true
+    # stdin_open: true
     tty: true
     working_dir: /home/hadoop
     user: hadoop 
@@ -66,7 +66,7 @@ services:
     depends_on:
       - hadoop-master
     restart: always
-    stdin_open: true
+    # stdin_open: true
     tty: true
     working_dir: /home/hadoop
     user: hadoop 
