@@ -32,11 +32,11 @@ docker compose up -d
 ```
 3. 与容器进行交互
 ```bash
-docker attach hadoop-master
+docker exec -it hadoop-master /bin/bash
 
-docker attach hadoop-slave1
+docker exec -it hadoop-slave1 /bin/bash 
 
-docker attach hadoop-slave2
+docker exec -it hadoop-slave2 /bin/bash
 ```
 
 
