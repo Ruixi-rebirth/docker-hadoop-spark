@@ -19,6 +19,7 @@ services:
       # - "10020:10020"
       # - "19888:19888"
       # - "50070:50070"
+      - "27649:27649"
       - "8080:8080"
       - "8088:8088"
     container_name: hadoop-master
@@ -31,7 +32,7 @@ services:
     working_dir: /home/hadoop
     user: hadoop 
     enterpoint: jupyter notebook \
-      --notebook-dir=/opt/notebooks --ip='*' --port=8888 \
+      --notebook-dir=/home/hadoop/notebooks --ip='*' --port=27649 \
       --no-browser --allow-root"
     networks:
       mynet:
