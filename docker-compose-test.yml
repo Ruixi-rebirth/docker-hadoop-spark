@@ -29,7 +29,7 @@ services:
     tty: true
     working_dir: /home/hadoop
     user: hadoop 
-    enterpoint: jupyter notebook \
+    entrypoint: jupyter notebook \
       --notebook-dir=/home/hadoop/notebooks --ip='*' --port=27649 \
       --no-browser --allow-root"
     networks:
