@@ -19,6 +19,7 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && sed -i -e '$ahadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL' /etc/sudoers \
     && sed -i -e '$asudo service ssh start' .bashrc \
     && chown -R hadoop:hadoop .ssh \
+    && chmod 644 .ssh/id_rsa \
     && chown -R hadoop:hadoop * 
 USER hadoop
 ENV JAVA_HOME /home/hadoop/jdk
