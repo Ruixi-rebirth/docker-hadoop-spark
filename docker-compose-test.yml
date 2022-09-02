@@ -6,7 +6,7 @@ networks:
       - subnet: 172.18.1.0/24
 services:
   hadoop-master:
-    image:  ghcr.io/ruixi/hadoop-spark
+    image: ghcr.io/ruixi-rebirth/hadoop-spark
     hostname: master
     ports:
       # - "9000:9000"
@@ -33,7 +33,7 @@ services:
       - "slave1:172.18.1.3"
       - "slave2:172.18.1.4"
   hadoop-slave1:
-    image:  ghcr.io/ruixi/hadoop-spark
+    image: ghcr.io/ruixi-rebirth/hadoop-spark
     hostname: slave1
     container_name: hadoop-slave1
     depends_on:
@@ -51,7 +51,7 @@ services:
       - "slave1:172.18.1.3"
       - "slave2:172.18.1.4"
   hadoop-slave2:
-    image:  ghcr.io/ruixi/hadoop-spark
+    image: ghcr.io/ruixi-rebirth/hadoop-spark
     hostname: slave2
     container_name: hadoop-slave2
     depends_on:
