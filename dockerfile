@@ -19,7 +19,7 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && sed -i -e '$ahadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL' /etc/sudoers \
     && sed -i -e '$asudo service ssh start' .bashrc \
     && chown -R hadoop:hadoop .ssh \
-    && chmod 644 .ssh/id_rsa \
+    && chmod 600 ./.ssh/id_rsa \
     && mv spark/sbin/start-all.sh spark/sbin/start-all-spark.sh \
     && mv spark/sbin/stop-all.sh spark/sbin/stop-all-spark.sh \
     && chown -R hadoop:hadoop * 
