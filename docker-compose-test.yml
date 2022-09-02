@@ -9,7 +9,7 @@ services:
     # build:
     #   context: ./
     #   dockerfile: dockerfile
-    image: ghcr.io/ruixi-rebirth/hadoop:latest
+    image: ghcr.io/ruixi-rebirth/hadoop-spark:latest
     hostname: master
     ports:
       # - "9000:9000"
@@ -36,7 +36,7 @@ services:
     # build:
     #   context: ./
     #   dockerfile: dockerfile
-    image: ghcr.io/ruixi-rebirth/hadoop:latest
+    image: ghcr.io/ruixi-rebirth/hadoop-spark:latest
     hostname: slave1
     # ports:
       # - "9000:9000"
@@ -62,7 +62,7 @@ services:
     # build:
     #   context: ./
     #   dockerfile: dockerfile
-    image: ghcr.io/ruixi-rebirth/hadoop:latest
+    image: ghcr.io/ruixi-rebirth/hadoop-spark:latest
     hostname: slave2
     # ports:
       # - "9000:9000"
