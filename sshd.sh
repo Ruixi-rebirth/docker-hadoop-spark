@@ -1,2 +1,2 @@
 #!/bin/bash 
-service ssh start
+sudo service ssh start
