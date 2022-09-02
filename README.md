@@ -15,6 +15,8 @@
 - spark部署说明: Spark On YARN*(Yet Another Resource Negotiator, 另一种资源协调者)*, 即 Spark 运行在Hadoop YARN框架之上的一种模式
 - .ssh 文件夹里面的公钥和私钥可以自己本地生成，每个节点会得到一样的公钥和私钥，方便ssh免密登陆
 - dockerfile 中的 hadoop.tar.gz和spark.tar.gz压缩包是我修改过配置文件的
+- 各个节点之间 $HADOOP_HOME/etc/hadoop/ SPARK_HOME/conf 配置共享
+- 各个节点已部署好 anaconda, Master节点 也部署好了jupyterlab,端口也映射出来了，直接本地开发，十分方便
 ### 截屏
 
 ![](./img/show.png)
