@@ -8,7 +8,7 @@ COPY .ssh ./.ssh
 RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo' \
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null \
-    && mkdir jdk hadoop spark notebooks \
+    && mkdir jdk hadoop spark \
     && wget http://23.105.207.7:8888/jdk-11.0.16_linux-x64_bin.tar.gz \
     && wget http://23.105.207.7:8888/spark.tar.gz \
     && wget http://23.105.207.7:8888/hadoop.tar.gz \
