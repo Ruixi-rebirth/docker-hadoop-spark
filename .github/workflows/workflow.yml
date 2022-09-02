@@ -4,17 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: download jdk
-      run: wget http://23.105.207.7:8888/jdk-11.0.16_linux-x64_bin.tar.gz
-    - name: download hadoop 
-      run: wget http://23.105.207.7:8888/hadoop-3.3.4.tar.gz
-    - name: extract hadoop
-      run: tar -zxf hadoop-3.3.4.tar.gz
-    - name: download spark
-      run: wget http://23.105.207.7:8888/spark-3.3.0-bin-hadoop3.tar.gz
-    - name: extract spark
-      run: tar -zxf spark-3.3.0-bin-hadoop3.tar.gz
+    - uses: actions/checkout@v3 
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v4
       with:
