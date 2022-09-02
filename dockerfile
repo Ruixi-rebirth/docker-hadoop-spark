@@ -4,9 +4,6 @@ RUN useradd -d /home/hadoop/ -m hadoop \
     && echo hadoop:ruixi | chpasswd
 WORKDIR /home/hadoop 
 COPY .ssh ./.ssh
-COPY jupyterlab.sh ./ 
-COPY sshd.sh ./ 
-COPY start-process.sh* ./ 
 RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo' \
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null \
