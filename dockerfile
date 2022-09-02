@@ -9,12 +9,12 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && apt install -y $pkg 2> /dev/null\
     && mkdir jdk hadoop spark\
     && wget http://23.105.207.7:8888/jdk-11.0.16_linux-x64_bin.tar.gz \
-    && wget http://23.105.207.7:8888/spark-3.3.0-bin-hadoop3.tar.gz \
-    && wget http://23.105.207.7:8888/hadoop-3.3.4.tar.gz \
+    && wget http://23.105.207.7:8888/spark.tar.gz \
+    && wget http://23.105.207.7:8888/hadoop.tar.gz \
     && tar -zxf jdk-11.0.16_linux-x64_bin.tar.gz -C jdk --strip-components=1 \
-    && tar -zxf hadoop-3.3.4.tar.gz -C hadoop --strip-components=1 \
-    && tar -zxf spark-3.3.0-bin-hadoop3.tar.gz -C spark --strip-components=1 \
-    && rm jdk-11.0.16_linux-x64_bin.tar.gz spark-3.3.0-bin-hadoop3.tar.gz hadoop-3.3.4.tar.gz \
+    && tar -zxf hadoop.tar.gz -C hadoop --strip-components=1 \
+    && tar -zxf spark.tar.gz -C spark --strip-components=1 \
+    && rm jdk-11.0.16_linux-x64_bin.tar.gz spark.tar.gz hadoop.tar.gz \
     && sed -i "s/#PermitRootLogin yes/PermitRootLogin yes/g" /etc/ssh/sshd_config \
     && sed -i -e '$ahadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL' /etc/sudoers \
     && sed -i -e '$asudo service ssh start' .bashrc \
