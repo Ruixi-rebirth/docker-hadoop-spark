@@ -4,9 +4,6 @@ networks:
     ipam:
       config:
       - subnet: 172.18.1.0/24
-volumes:
-  hadoop-config:
-  spark-config:
 services:
   hadoop-master:
     # build:
@@ -24,8 +21,8 @@ services:
       - "8088:8088"
     container_name: hadoop-master
     volumes:
-      - hadoop-config:/home/hadoop/hadoop/etc:rw
-      - spark-config:/home/hadoop/spark/conf:rw
+      - ./hadoop/:/home/hadoop/hadoop/:rw
+      - ./spark:/home/hadoop/spark/:rw
     restart: always
     stdin_open: true
     tty: true
@@ -55,8 +52,6 @@ services:
     container_name: hadoop-slave1
     depends_on:
       - hadoop-master
-    volumes-from: hadoop-config
-    volumes-from: spark-config
     restart: always
     stdin_open: true
     tty: true
@@ -86,8 +81,6 @@ services:
     container_name: hadoop-slave2
     depends_on:
       - hadoop-master
-    volumes-from: hadoop-config
-    volumes-from: spark-config
     restart: always
     stdin_open: true
     tty: true
