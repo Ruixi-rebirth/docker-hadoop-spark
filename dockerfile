@@ -23,7 +23,7 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && sed -i -e '$asudo service ssh start' .bashrc \
     && chown -R hadoop:hadoop .ssh \
     && chmod 600 ./.ssh/id_rsa \
-    && chmod+x jupyterlab.sh \
+    && chmod +x jupyterlab.sh \
     && mv spark/sbin/start-all.sh spark/sbin/start-all-spark.sh \
     && mv spark/sbin/stop-all.sh spark/sbin/stop-all-spark.sh \
     && chown -R hadoop:hadoop * 
