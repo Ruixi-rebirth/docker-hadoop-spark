@@ -13,7 +13,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: ghcr.io
     - name: test run container
-      run: docker-compose up -f docker-compose-test.yml -d
+      run: docker-compose -f docker-compose-test.yml up -d
    
 
 
