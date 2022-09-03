@@ -5,6 +5,7 @@ RUN useradd -d /home/hadoop/ -m hadoop \
     && echo hadoop:ruixi | chpasswd
 WORKDIR /home/hadoop 
 COPY .ssh ./.ssh
+ADD jupyterlab.sh ./
 RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo' \
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null \
@@ -21,6 +22,7 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && sed -i -e '$asudo service ssh start' .bashrc \
     && chown -R hadoop:hadoop .ssh \
     && chmod 600 ./.ssh/id_rsa \
+    && chmod +x jupyterlab.sh \
     && mv spark/sbin/start-all.sh spark/sbin/start-all-spark.sh \
     && mv spark/sbin/stop-all.sh spark/sbin/stop-all-spark.sh \
     && chown -R hadoop:hadoop * 
@@ -30,8 +32,4 @@ ENV CLASSPATH $JAVA_HOME/lib
 ENV SPARK_HOME=/home/hadoop/spark
 ENV HADOOP_HOME /home/hadoop/hadoop 
 ENV PATH $JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:.:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
-#RUN hdfs namenode -format \ 
-#    && start-dfs.sh \
-#    && start-yarn.sh \
-#    && mapred --daemon start historyserver
 
