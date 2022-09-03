@@ -6,7 +6,7 @@ RUN useradd -d /home/hadoop/ -m hadoop \
 WORKDIR /home/hadoop 
 COPY .ssh ./.ssh
 ADD jupyterlab.sh ./
-RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo nodejs' \
+RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo nodejs npm' \
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null \
     && conda install jupyterlab -y --quiet \
@@ -22,6 +22,7 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && sed -i -e '$ahadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL' /etc/sudoers \
     && sed -i -e '$asudo service ssh start' .bashrc \
     && chown -R hadoop:hadoop .ssh \
+    && chown -R hadoop:hadoop /opt/conda \
     && chmod 600 ./.ssh/id_rsa \
     && chmod +x jupyterlab.sh \
     && mv spark/sbin/start-all.sh spark/sbin/start-all-spark.sh \
