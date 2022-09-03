@@ -37,7 +37,7 @@ services:
     tty: true
     working_dir: /home/hadoop
     user: hadoop 
-    entrypoint: ./jupyterlab.sh 
+    entrypoint: ./pyspark.sh
     networks:
       mynet:
         ipv4_address: 172.18.1.2

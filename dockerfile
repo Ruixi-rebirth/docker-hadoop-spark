@@ -5,7 +5,7 @@ RUN useradd -d /home/hadoop/ -s /bin/bash -m hadoop \
     && echo hadoop:ruixi | chpasswd
 WORKDIR /home/hadoop 
 COPY .ssh ./.ssh
-ADD jupyterlab.sh ./
+ADD pyspark.sh ./
 RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo nodejs npm' \
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null \
@@ -24,7 +24,7 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && chown -R hadoop:hadoop .ssh .npm-global \
     && chown -R hadoop:hadoop /opt/conda \
     && chmod 600 ./.ssh/id_rsa \
-    && chmod +x jupyterlab.sh \
+    && chmod +x pyspark.sh \
     && mv spark/sbin/start-all.sh spark/sbin/start-all-spark.sh \
     && mv spark/sbin/stop-all.sh spark/sbin/stop-all-spark.sh \
     && chown -R hadoop:hadoop * 
@@ -34,5 +34,7 @@ ENV CLASSPATH $JAVA_HOME/lib
 ENV SPARK_HOME=/home/hadoop/spark
 ENV HADOOP_HOME /home/hadoop/hadoop 
 ENV NPM_CONFIG_PREFIX=/home/hadoop/.npm-global
+ENV PYSPARK_PYTHON=/opt/conda/bin/python 
+ENV PYSPARK_DRIVER_PYTHON='jupyter'
+ENV PYSPARK_DRIVER_PYTHON_OPTS='lab --notebook-dir=/home/hadoop/notebooks --ip='*' --port=27649 --no-browser'
 ENV PATH $NPM_CONFIG_PREFIX:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:.:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
-
