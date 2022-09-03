@@ -10,7 +10,7 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null \
     && conda install jupyterlab -y --quiet \
-    && mkdir jdk hadoop spark .npm-global\
+    && mkdir jdk hadoop spark .npm-global \
     && wget http://23.105.207.7:8888/jdk-11.0.16_linux-x64_bin.tar.gz \
     && wget http://23.105.207.7:8888/spark.tar.gz \
     && wget http://23.105.207.7:8888/hadoop.tar.gz \
@@ -21,7 +21,7 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && sed -i "s/#PermitRootLogin yes/PermitRootLogin yes/g" /etc/ssh/sshd_config \
     && sed -i -e '$ahadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL' /etc/sudoers \
     && sed -i -e '$asudo service ssh start' .bashrc \
-    && chown -R hadoop:hadoop .ssh \
+    && chown -R hadoop:hadoop .ssh .npm-global \
     && chown -R hadoop:hadoop /opt/conda \
     && chmod 600 ./.ssh/id_rsa \
     && chmod +x jupyterlab.sh \
