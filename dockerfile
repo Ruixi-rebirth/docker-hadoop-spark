@@ -9,7 +9,7 @@ ADD jupyterlab.sh ./
 RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo' \
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null \
-    && conda install jupyter -y --quiet \
+    && conda install jupyterlab -y --quiet \
     && mkdir jdk hadoop spark \
     && wget http://23.105.207.7:8888/jdk-11.0.16_linux-x64_bin.tar.gz \
     && wget http://23.105.207.7:8888/spark.tar.gz \
@@ -23,6 +23,7 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && sed -i -e '$asudo service ssh start' .bashrc \
     && chown -R hadoop:hadoop .ssh \
     && chmod 600 ./.ssh/id_rsa \
+    && chmod+x jupyterlab.sh \
     && mv spark/sbin/start-all.sh spark/sbin/start-all-spark.sh \
     && mv spark/sbin/stop-all.sh spark/sbin/stop-all-spark.sh \
     && chown -R hadoop:hadoop * 
