@@ -6,11 +6,11 @@ RUN useradd -d /home/hadoop/ -s /bin/bash -m hadoop \
 WORKDIR /home/hadoop 
 COPY .ssh ./.ssh
 ADD pyspark.sh ./
-RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo npm' \
+RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo' \
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null \
     && conda install jupyterlab -y --quiet \
-    && pip install jupyterlab-lsp nodejs \
+    && pip install jupyterlab-lsp nodejs npm black jupyterlab-code-formatter \
     && mkdir jdk hadoop spark .npm-global \
     && wget http://23.105.207.7:8888/jdk-11.0.16_linux-x64_bin.tar.gz \
     && wget http://23.105.207.7:8888/spark.tar.gz \
