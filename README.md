@@ -16,7 +16,7 @@
 - .ssh 文件夹里面的公钥和私钥可以自己本地生成，每个节点会得到一样的公钥和私钥，方便ssh免密登陆
 - dockerfile 中的 hadoop.tar.gz和spark.tar.gz压缩包是我修改过配置文件的
 - 各个节点之间 $HADOOP_HOME/etc/hadoop/ SPARK_HOME/conf 配置共享
-- 各个节点已部署好 anaconda, Master节点的jupyterlab端口也映射出来了, 在`docker compose up -d`启动容器的前提下, 直接浏览器打开 127.0.0.1:27649 使用, 且notrbooks目录的内容会同步到本地, 登陆密码设置可以进入hadoop-master容器,然后看这个[教程](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html)改配置文件
+- 各个节点已部署好 anaconda, Master节点的jupyterlab端口也映射出来了, 在`docker compose up -d`启动容器的前提下, 直接浏览器打开 127.0.0.1:27649 使用, 且notebooks目录的内容会同步到本地, 登陆密码设置可以进入hadoop-master容器,然后看这个[教程](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html)改配置文件
 
 ### 使用 
 1. 克隆仓库到本地
