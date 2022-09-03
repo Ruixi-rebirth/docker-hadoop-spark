@@ -10,7 +10,7 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null \
     && conda install jupyterlab -y --quiet \
-    && mkdir jdk hadoop spark \
+    && mkdir jdk hadoop spark .npm-global\
     && wget http://23.105.207.7:8888/jdk-11.0.16_linux-x64_bin.tar.gz \
     && wget http://23.105.207.7:8888/spark.tar.gz \
     && wget http://23.105.207.7:8888/hadoop.tar.gz \
@@ -33,5 +33,6 @@ ENV JAVA_HOME /home/hadoop/jdk
 ENV CLASSPATH $JAVA_HOME/lib 
 ENV SPARK_HOME=/home/hadoop/spark
 ENV HADOOP_HOME /home/hadoop/hadoop 
-ENV PATH $JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:.:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
+ENV NPM_CONFIG_PREFIX=/home/hadoop/.npm-global
+ENV PATH $NPM_CONFIG_PREFIX:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:.:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
 
