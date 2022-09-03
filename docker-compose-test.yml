@@ -24,12 +24,18 @@ services:
     volumes:
       - hadoop-config:/home/hadoop/hadoop/etc/hadoop:rw
       - spark-config:/home/hadoop/spark/conf:rw
+      - ./notebooks:/home/hadoop/notebooks:rw
     restart: always
     # stdin_open: true
     tty: true
     working_dir: /home/hadoop
     user: hadoop 
-    entrypoint: jupyter notebook --notebook-dir=/home/hadoop/notebooks --ip='*' --port=27649 --no-browser --allow-root 
+    restart: always
+    # stdin_open: true
+    tty: true
+    working_dir: /home/hadoop
+    user: hadoop 
+    entrypoint: conda install jupyter -y --quiet && mkdir notebooks && jupyter notebook --notebook-dir=/home/hadoop/notebooks --ip='*' --port=27649 --no-browser --allow-root 
     networks:
       mynet:
         ipv4_address: 172.18.1.2
