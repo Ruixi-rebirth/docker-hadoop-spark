@@ -7,7 +7,7 @@
 
 ### 环境详情
 |名称|IP|说明|JDK版本|Hadoop版本|Spark版本|
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 |hadoop-master|172.18.1.2|Master节点|11.0.16|3.3.4|3.3.0|
 |hadoop-slave1|172.18.1.3|Slave节点|11.0.16|3.3.4|3.3.0|
 |hadoop-slave2|172.18.1.4|Slave节点|11.0.16|3.3.4|3.3.0|
@@ -20,6 +20,9 @@
 - 各个节点已部署好 anaconda, master节点的 jupyterlab 端口也映射出来了, 在`docker compose up -d`启动容器的前提下, 直接浏览器打开 [127.0.0.1:27649](http:127.0.0.1:27649) 使用, 且 notebooks 目录的内容会同步到本地, 可在 jupyterlab 中使用 pyspark, 登陆密码设置可以进入 hadoop-master 容器,然后看这个[教程](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html)改配置文件
 ![](./img/jupyterlab.png)
 ![](./img/show.png)
+
+### 截屏
+![](./img/spark_on_yarn.png)
 ### 使用 
 1. 克隆仓库到本地
 ```bash
