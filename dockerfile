@@ -6,8 +6,9 @@ RUN useradd -d /home/hadoop/ -s /bin/bash -m hadoop \
 WORKDIR /home/hadoop 
 COPY .ssh ./.ssh
 ADD pyspark.sh ./
-RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo' \
+RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo nodejs npm' \
     && apt update 2> /dev/null \
+    && curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
     && apt install -y $pkg 2> /dev/null \
     && conda install jupyterlab -y --quiet \
     && pip install jupyterlab-lsp nodejs npm black jupyterlab-code-formatter \
