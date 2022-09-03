@@ -6,7 +6,7 @@ RUN useradd -d /home/hadoop/ -m hadoop \
 WORKDIR /home/hadoop 
 COPY .ssh ./.ssh
 ADD jupyterlab.sh ./
-RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo' \
+RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo nodejs' \
     && apt update 2> /dev/null \
     && apt install -y $pkg 2> /dev/null \
     && conda install jupyterlab -y --quiet \
