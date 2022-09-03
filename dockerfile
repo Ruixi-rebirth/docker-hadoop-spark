@@ -8,8 +8,10 @@ COPY .ssh ./.ssh
 ADD pyspark.sh ./
 RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo nodejs npm' \
     && apt update 2> /dev/null \
+    && curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - \
     && apt install -y $pkg 2> /dev/null \
     && conda install jupyterlab -y --quiet \
+    && pip install jupyterlab-lsp \
     && mkdir jdk hadoop spark .npm-global \
     && wget http://23.105.207.7:8888/jdk-11.0.16_linux-x64_bin.tar.gz \
     && wget http://23.105.207.7:8888/spark.tar.gz \
