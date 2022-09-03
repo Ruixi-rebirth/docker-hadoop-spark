@@ -6,7 +6,7 @@ RUN useradd -d /home/hadoop/ -s /bin/bash -m hadoop \
 WORKDIR /home/hadoop 
 COPY .ssh ./.ssh
 ADD pyspark.sh ./
-RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo nodejs npm' \
+RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo nodejs' \
     && apt update 2> /dev/null \
     && curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
     && apt install -y $pkg 2> /dev/null \
