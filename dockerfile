@@ -5,7 +5,7 @@ RUN useradd -d /home/hadoop/ -s /bin/bash -m hadoop \
     && echo hadoop:ruixi | chpasswd
 WORKDIR /home/hadoop 
 COPY .ssh ./.ssh
-ADD pyspark.sh ./
+ADD misc.sh ./
 RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-client sudo nodejs' \
     && apt update 2> /dev/null \
     && curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
@@ -23,13 +23,10 @@ RUN set -x; pkg='wget iputils-ping iproute2 vim ranger openssh-server openssh-cl
     && sed -i "s/#PermitRootLogin yes/PermitRootLogin yes/g" /etc/ssh/sshd_config \
     && sed -i -e '$ahadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL' /etc/sudoers \
     && sed -i -e '$asudo service ssh start' .bashrc \
-    && chown -R hadoop:hadoop .ssh .npm-global \
     && chown -R hadoop:hadoop /opt/conda \
     && chmod 600 ./.ssh/id_rsa \
-    && chmod +x pyspark.sh \
-    && mv spark/sbin/start-all.sh spark/sbin/start-all-spark.sh \
-    && mv spark/sbin/stop-all.sh spark/sbin/stop-all-spark.sh \
-    && chown -R hadoop:hadoop * 
+    && chmod +x misc.sh \
+    && chown -R hadoop:hadoop .* 
 USER hadoop
 ENV JAVA_HOME /home/hadoop/jdk
 ENV CLASSPATH $JAVA_HOME/lib 
