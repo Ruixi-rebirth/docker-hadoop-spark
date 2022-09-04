@@ -24,6 +24,8 @@
 
 ### 截屏
 ![](./img/spark_on_yarn.png)
+![](./img/hadoop_overview.png)
+![](./img/hadoop_cluster.png)
 ### 使用 
 1. 克隆仓库到本地
 ```bash
