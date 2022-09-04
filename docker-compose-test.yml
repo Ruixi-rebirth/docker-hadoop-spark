@@ -17,6 +17,8 @@ services:
       - "8080:8080"
       - "8081:8081"
       - "8088:8088"
+      - "4040:4040"
+      - "18080:18080"
     container_name: hadoop-master
     volumes:
       - hadoop-config:/home/hadoop/hadoop/etc/hadoop:rw

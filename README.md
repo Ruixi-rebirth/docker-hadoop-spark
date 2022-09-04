@@ -14,6 +14,7 @@
 
 - hadoop 部署说明: 完全分布式模式(集群模式), master 节点仅作为 NameNode 使用, slave 节点 为 DataNode
 - spark 部署说明: Spark On YARN*(Yet Another Resource Negotiator, 另一种资源协调者)*, 即 Spark 运行在 Hadoop YARN 框架之上的一种模式
+- spark 和 hadoop 目录下的 sbin 中的 start-all.sh, stop-all.sh 重名了，我已经将 spark文件夹下的重命名为 start-all-spark.sh, stop-all-spark.sh 
 - .ssh 文件夹里面的公钥和私钥可以自己本地生成，每个节点会得到一样的公钥和私钥，方便 ssh 免密登陆(各个节点之间公钥相互拷来拷去的，很麻烦😤)
 - dockerfile 中的 hadoop.tar.gz 和 spark.tar.gz 压缩包是我修改过配置文件的 [下载地址](http://23.105.207.7:8888/)
 - 各个节点之间 $HADOOP_HOME/etc/hadoop/ SPARK_HOME/conf 配置共享
