@@ -2,8 +2,6 @@
 
 sudo chown -R hadoop:hadoop notebooks
 
-jupyter lab --generate-config
-sed -i -e '$ac.NotebookApp.token =\' '.jupyter/jupyter_lab_config.py'
 #检测/home/hadoop/spark/sbin 下是否存在 start-all.sh、stop-all.sh 文件,
 #因为这两个文件名和/home/hadoop/hadoop/etc/hadoop 下的文件重名了, 需要重命名一下
 original_start_file="/home/hadoop/spark/sbin/start-all.sh"
